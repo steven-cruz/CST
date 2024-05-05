@@ -1,0 +1,44 @@
+/*
+ * img logo principal
+ */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*
+ * botones
+ */
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 30rem;
+    margin: auto;
+    gap: 30px;
+}
+
+.btn-option-admin {
+    width: 7rem;
+    height: 7rem;
+}
+
+/*
+ * boton logout
+ */
+
+ .logout-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 30rem;
+    margin: auto;
+    gap: 30px;
+ }
+
+ .logout-container button {
+    width: 8rem;
+    height: 3rem;
+ }
