@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
 </head>
 <body>
     <div class="logo-container">
-        <img src="/public/logo.png" alt="logo">
+        <img src="/public/logo.png" alt="logo" width="100%" height="auto">
     </div>
 
     <div class="buttons-container">
-        <button class="btn-option-admin option-customer">Administrar clientes</button>
-        <button class="btn-option-admin option-orders">Administrar ordenes</button>
-        <button class="btn-option-admin option-history">Historial de ordenes</button>
-        <button class="btn-option-admin option-inventory">Inventario</button>
-        <button class="btn-option-admin option-settings">Configuraciones</button>
+        <button class="btn-option-admin option-customer"><i class="icon-group"></i><span>Administrar clientes</span></button>
+        <button class="btn-option-admin option-orders"><i class="icon-plus"></i>Administrar ordenes</button>
+        <button class="btn-option-admin option-history"><i class="icon-edit-pencil"></i>Historial de ordenes</button>
+        <button class="btn-option-admin option-inventory"><i class="icon-bookmark-book"></i>Inventario</button>
+        <button class="btn-option-admin option-settings"><i class="icon-settings"></i>Configuraciones</button>
     </div>
 
     <div class="logout-container">
