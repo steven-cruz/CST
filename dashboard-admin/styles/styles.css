@@ -1,0 +1,66 @@
+/*
+ * img logo principal
+ */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container img {
+    max-width: 30rem;
+}
+
+/*
+ * botones
+ */
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 30rem;
+    margin: auto;
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.btn-option-admin {
+    width: 7rem;
+    height: 7rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-option-admin i::before {
+    width: 35px;
+    height: 35px;
+}
+
+/*
+ * boton logout
+ */
+
+.logout-container {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.logout-container button {
+    width: 8rem;
+    height: 3rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+.logout-container button:hover,
+.btn-option-admin:hover {
+    background-color: #46a9c7;
+    border: none;
+    border-radius: 3px;
+}
+
