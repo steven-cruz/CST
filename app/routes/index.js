@@ -3,7 +3,7 @@ import {Router} from 'express';
 const router = Router();
 
 // Initial Page ('Sig in')
-router.get('/', (req, res) => res.render('global/pages/log-in', {title: 'Iniciar sesión'}));
+router.get('/', (req, res) => res.render('common/pages/login', {title: 'Iniciar sesión'}));
 
 // Dashboard Admin Page
 router.get('/dashboard', (req, res) => res.render('admin/pages/dashboard', {title: 'Panel de administración'}));
