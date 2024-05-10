@@ -6,5 +6,24 @@
     <%- include('../components/navigation') %>
 
     <h1><%= title %></h1>
+    <table id="customers-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Doc.</th>
+                <th>Num. de Doc.</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Correo</th>
+                <th>Fecha de creación</th>
+                <th>Ultima actualización</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="/js/admin/pages/customers.js"></script>
 </body>
 </html>
