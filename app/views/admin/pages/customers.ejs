@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include('../../common/components/head') %>
 
-<body>
+<body class="page-customers">
     <div class="two-columns">
         <div class="container-navigation">
             <%- include('../components/navigation') %>
@@ -10,33 +10,33 @@
 
         <div class="container-content">
             <h1><%= title %></h1>
-            <div>
-                <button><a href="/create-customer">Agregar cliente</a></button>
+            <div class="container-createcustomer-button">
+                <button class="btn-action-primary btn-create-customer"><a href="/create-customer">Crear cliente</a></button>
             </div>
-            <div>
-                <button>Eliminar clientes seleccinados</button>
+            <div class="container-customers-buttons">
+                <button class="btn-action-secondary">Eliminar clientes seleccinados</button>
                 <div>
-                    <input type="text" placeholder="Buscar por Num. de Doc...">
-                    <button>Buscar</button>
+                    <input class="input-search" type="text" placeholder="Filtrar por documento, nombre o apellido...">
+                    <button class="btn-action-secondary">Buscar</button>
                 </div>
             </div>
-            <table id="customers-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tipo de Doc.</th>
-                        <th>Num. de Doc.</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Teléfono</th>
-                        <th>Dirección</th>
-                        <th>Correo</th>
-                        <th>Fecha de creación</th>
-                        <th>Ultima actualización</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="container-customers-table">
+                <table id="customers-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>T.D</th>
+                            <th>Num. Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
