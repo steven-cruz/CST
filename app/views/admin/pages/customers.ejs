@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../common/components/head') %>
+
+<body>
+    <div class="two-columns">
+        <div class="container-navigation">
+            <%- include('../components/navigation') %>
+        </div>
+
+        <div class="container-content">
+            <h1><%= title %></h1>
+            <div>
+                <button><a href="/create-customer">Agregar cliente</a></button>
+            </div>
+            <div>
+                <button>Eliminar clientes seleccinados</button>
+                <div>
+                    <input type="text" placeholder="Buscar por Num. de Doc...">
+                    <button>Buscar</button>
+                </div>
+            </div>
+            <table id="customers-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo de Doc.</th>
+                        <th>Num. de Doc.</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Correo</th>
+                        <th>Fecha de creación</th>
+                        <th>Ultima actualización</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/admin/pages/customers.js"></script>
+</body>
+</html>
