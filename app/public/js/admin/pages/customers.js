@@ -15,15 +15,13 @@ async function loadCustomers() {
 
             row.innerHTML = `
                 <td>${customer.id}</td>
-                <td>${customer.document_type}</td>
+                <td class="document-type">${customer.document_type}</td>
                 <td>${customer.document_number}</td>
                 <td>${customer.first_name}</td>
                 <td>${customer.last_name}</td>
                 <td>${customer.phone_number}</td>
                 <td>${customer.address_street}</td>
                 <td>${customer.email}</td>
-                <td>${createdAtFormatted}</td>
-                <td>${updatedAtFormatted}</td>
             `;
             tableBody.appendChild(row);
         });
