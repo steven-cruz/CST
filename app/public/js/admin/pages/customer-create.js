@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('#create-customer');
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
         event.preventDefault(); // Previene el envío inicial
         let isFormValid = true;
 
@@ -39,7 +39,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Si todo es válido, permitir que el formulario se envíe
         if (isFormValid) {
-            form.submit();
+            const formData = new FormData(form);
+            fetch('/api/customer', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Convertir siempre la respuesta a JSON, y pasar tanto el objeto JSON como el estado de la respuesta
+                return response.json().then(data => ({
+                    ok: response.ok,
+                    status: response.status,
+                    data: data,
+                }));
+            })
+            .then(response => {
+                if (response.ok) {
+                    localStorage.setItem('toastMsg', JSON.stringify({ message: '¡Cliente creado con éxito!', type: 'success' }));
+                    window.location.href = '/customers';
+                } else {
+                    // Mostrar mensaje específico basado en la respuesta del servidor
+                    showToast(response.data.error, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar el formulario:', error);
+                showToast('Error de conexión. Por favor, verifique su red.', 'error');
+            });
         }
     });
 
