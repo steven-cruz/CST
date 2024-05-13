@@ -3,17 +3,17 @@
 <%- include('../../common/components/head') %>
 
 <body>
-    <div style="display: flex;">
-        <div style="padding: 20px; background-color: aliceblue;">
+    <div class="two-columns">
+        <div class="container-navigation">
             <%- include('../components/navigation') %>
         </div>
 
-        <div>
+        <div class="container-content">
             <h1><%= title %></h1>
-            <div style="text-align: end;">
+            <div>
                 <button><a href="/create-customer">Agregar cliente</a></button>
             </div>
-            <div style="display: flex; width: 100%; justify-content: space-between; margin: 16px 0;">
+            <div>
                 <button>Eliminar clientes seleccinados</button>
                 <div>
                     <input type="text" placeholder="Buscar por Num. de Doc...">

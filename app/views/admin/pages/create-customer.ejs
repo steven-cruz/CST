@@ -3,12 +3,12 @@
 <%- include('../../common/components/head') %>
 
 <body>
-    <div style="display: flex;">
-        <div style="padding: 20px; background-color: aliceblue;">
+    <div class="two-columns">
+        <div class="container-navigation">
             <%- include('../components/navigation') %>
         </div>
 
-        <div>
+        <div class="container-content">
             <h1><%= title %></h1>
 
             <form action="/api/customer" method="POST" id="create-customer">

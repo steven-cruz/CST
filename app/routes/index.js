@@ -27,4 +27,19 @@ router.get('/orders', (req, res) => {
     res.render('admin/pages/orders', {title: 'Ordenes'})
 });
 
+// History Orders
+router.get('/history-orders', (req, res) => {
+    res.render('admin/pages/history-orders', {title: 'Historial de ordenes'})
+});
+
+// Inventory
+router.get('/inventory', (req, res) => {
+    res.render('admin/pages/inventory', {title: 'Inventario'})
+});
+
+// Settings
+router.get('/settings', (req, res) => {
+    res.render('admin/pages/settings', {title: 'Configuraciones'})
+});
+
 export default router;

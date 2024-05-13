@@ -1,0 +1,43 @@
+/*
+ * Global styles
+ * ==============================
+ */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.two-columns {
+    display: flex;
+}
+
+/*
+ * Nav bar vertical styles
+ * ==============================
+ */
+
+.container-navigation {
+    margin-right: 1rem;
+    box-shadow: 1px 14px 20px rgb(0 0 0 / 16%);
+    height: 100vh;
+}
+
+.navigation {
+    padding: 0 1rem;
+}
+
+.navigation .items {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation .item {
+    margin-bottom: 25px;
+}
+
+.navigation .option {
+    text-decoration: none;
+}
