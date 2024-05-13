@@ -3,8 +3,13 @@
 <%- include('../../common/components/head') %>
 
 <body>
-    <%- include('../components/navigation') %>
+    <div style="display: flex;">
+        <div style="padding: 20px; background-color: aliceblue;">
+            <%- include('../components/navigation') %>
+        </div>
 
-    <h1><%= title %></h1>
+        <div>
+            <h1><%= title %></h1>
+    </div>
 </body>
 </html>

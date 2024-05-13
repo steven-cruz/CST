@@ -3,26 +3,42 @@
 <%- include('../../common/components/head') %>
 
 <body>
-    <%- include('../components/navigation') %>
+    <div style="display: flex;">
+        <div style="padding: 20px; background-color: aliceblue;">
+            <%- include('../components/navigation') %>
+        </div>
 
-    <h1><%= title %></h1>
-    <table id="customers-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tipo de Doc.</th>
-                <th>Num. de Doc.</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Correo</th>
-                <th>Fecha de creación</th>
-                <th>Ultima actualización</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <div>
+            <h1><%= title %></h1>
+            <div style="text-align: end;">
+                <button><a href="/create-customer">Agregar cliente</a></button>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between; margin: 16px 0;">
+                <button>Eliminar clientes seleccinados</button>
+                <div>
+                    <input type="text" placeholder="Buscar por Num. de Doc...">
+                    <button>Buscar</button>
+                </div>
+            </div>
+            <table id="customers-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo de Doc.</th>
+                        <th>Num. de Doc.</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Correo</th>
+                        <th>Fecha de creación</th>
+                        <th>Ultima actualización</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="/js/admin/pages/customers.js"></script>
 </body>

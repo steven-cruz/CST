@@ -19,6 +19,9 @@ app.use(express.static(join(__dirname, 'public')));
 // Analizar solicitudes JSON
 app.use(bodyParser.json());
 
+// Analizar cuerpos de solicitud de formularios
+app.use(express.urlencoded({ extended: true }));
+
 /**
  * Routes configuration.
  */

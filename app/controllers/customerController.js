@@ -19,9 +19,10 @@ export async function getAllCustomersController(req, res) {
 export async function createCustomerController(req, res) {
     try {
         const customerData = req.body;
+        console.log('Customer Data: ', customerData);
         const result = await createCustomer(customerData);
         res.status(201).json({ id: result.id });
-    } catch {
+    } catch (error) {
         console.error('Error al crear el cliente: ', error);
         res.status(500).json({ error: 'Error interno del servidor' })
     }
