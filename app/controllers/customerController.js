@@ -24,7 +24,7 @@ export async function createCustomerController(req, res) {
     } catch (error) {
         console.error('Error al crear el cliente: ', error);
 
-        if (error.code === 'ER_DUP_ENTRY' && error.sqlMessage.includes("for key 'customers.document_number'")) {
+        if (error.code === 'ER_DUP_ENTRY') {
             res.status(409).json({ error: 'El cliente ya se encuentra registrado' });
         } else {
             res.status(500).json({ error: 'Error interno del servidor' });
