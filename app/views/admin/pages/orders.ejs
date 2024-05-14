@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include('../../common/components/head') %>
 
-<body>
+<body class="page-orders">
     <div class="two-columns">
         <!-- Navigation -->
         <div class="container-navigation">
@@ -11,9 +11,31 @@
 
         <!-- Content -->
         <div class="container-content">
-            <h1>
-                <%= title %>
-            </h1>
+            <h1><%= title %></h1>
+            <div class="container-primary-buttons">
+                <button class="btn-action-primary btn-new-order"><a href="">Nueva orden</a></button>
+            </div>
+            <div class="container-orders-buttons">
+                <div>
+                    <input class="input-search" type="text" placeholder="Filtrar por documento, nombre o apellido...">
+                    <button class="btn-action-secondary">Buscar</button>
+                </div>
+            </div>
+            <div class="container-orders-table">
+                <table id="customers-table">
+                    <thead>
+                        <tr>
+                            <th>Order number</th>
+                            <th>Customer Doc.</th>
+                            <th>Marca</th>
+                            <th>Referencia</th>
+                            <th>Estado</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
