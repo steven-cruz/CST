@@ -7,7 +7,7 @@ body {
     font-family: 'Nunito', sans-serif;
     padding: 0;
     margin: 0;
-    background-color: rgba(250, 235, 215, 0.5);
+    background-color: rgba(250, 235, 215, 0.329);
 }
 
 button,
@@ -25,6 +25,11 @@ input {
 }
 
 /*Primary buttons desings*/
+
+.container-primary-buttons {
+    text-align: end;
+    margin-bottom: 1rem;
+}
 
 .btn-action-primary {
     padding: 1rem 2rem;
@@ -140,11 +145,6 @@ tbody tr:nth-child(even) {
  * ==============================
  */
 
-.container-createcustomer-button {
-    margin: 1rem 0;
-    text-align: end;
-}
-
 .container-customers-buttons {
     display: flex;
     justify-content: space-between;
@@ -184,4 +184,15 @@ form .required label::after {
 .control select {
     height: 22px;
     border-radius: 3px;
+}
+
+/* 
+ * Create orders page
+ * ==============================
+ */
+
+.container-orders-buttons {
+    display: flex;
+    justify-content:end;
+    margin-bottom: 1rem;
 }
