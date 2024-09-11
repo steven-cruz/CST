@@ -19,7 +19,7 @@ Software para negicios de servicios tecnicos y reparaciones.
 
 * Para iniciar el proyecto vamos a ejecutar desde la consola el comando:
   ```
-  node --watch index.js
+  node --watch app/index.js
   ```
   Con esto hecho, el proyecto estara disponible para verlo desde el navegador, abrimos el navegador y en la barra de direcciones escribimos `localhost:3000`
 
