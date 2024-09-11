@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 
 import indexRoutes from './routes/index.js';
 import customerRoutes from './routes/customerRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 
@@ -27,5 +28,6 @@ app.use(express.urlencoded({ extended: true }));
  */
 app.use(indexRoutes);
 app.use('/api', customerRoutes);
+app.use('/api', userRoutes);
 
 app.listen(3000);
