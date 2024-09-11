@@ -1,0 +1,187 @@
+/*
+ * Global styles
+ * ==============================
+ */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(250, 235, 215, 0.5);
+}
+
+button,
+input {
+    font-family: 'Nunito', sans-serif;
+}
+
+.two-columns {
+    display: flex;
+}
+
+.container-content {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/*Primary buttons desings*/
+
+.btn-action-primary {
+    padding: 1rem 2rem;
+}
+
+.btn-action-primary:hover {
+    background-color: rgba(1, 119, 187, 0.445);
+    border: 2px solid transparent;
+    border-radius: 3px;
+}
+
+/*secondary buttons desings*/
+
+.btn-action-secondary:hover {
+    background-color: rgba(1, 119, 187, 0.445);
+    border: 2px solid transparent;
+    border-radius: 3px;
+}
+
+.input-search {
+    width: 20rem;
+}
+
+/*buttons actions*/
+
+.buttons-actions {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.button-action {
+    width: 8rem;
+    height: 3rem;
+}
+
+/* Designs for tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
+}
+
+th {
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: black;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 10px 5px;
+}
+
+
+td {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 2px 5px;
+}
+
+.document-type {
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(151, 151, 151, 0.692);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+}
+
+/*
+ * Nav bar vertical styles
+ * ==============================
+ */
+
+.container-navigation {
+    margin-right: 1rem;
+    box-shadow: 1px 14px 20px rgb(0 0 0 / 16%);
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.navigation .items {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.navigation .item {
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    width: 100%;
+    height: 50px;
+}
+
+.navigation .item:hover {
+    background-color: rgba(1, 119, 187, 0.445);
+    cursor: pointer;
+}
+
+.navigation .option {
+    text-decoration: none;
+    margin: 0 25px;
+}
+
+/*
+ * customers page
+ * ==============================
+ */
+
+.container-createcustomer-button {
+    margin: 1rem 0;
+    text-align: end;
+}
+
+.container-customers-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+/* 
+ * Create customer page
+ * ==============================
+ */
+
+.page-create-customer form .control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+}
+
+form .label-error {
+    color: red;
+}
+
+form .required label::after {
+    content: '*';
+    color: red;
+    margin-left: 8px;
+}
+
+.container-form {
+    width: 20rem;
+    margin-left: 3rem;
+}
+
+.control input {
+    height: 1rem;
+}
+
+.control select {
+    height: 22px;
+    border-radius: 3px;
+}
