@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import { createUserController, loginUserController } from '../controllers/userController.js';
+import { verifyToken } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
-// Ruta para crear un nuevo usuario
-router.post('/users', createUserController);
+// Api route for create new users.
+router.post('/', verifyToken, createUserController);
 
-// Ruta para el inicio de sesión
+// Api route for loggin users.
 router.post('/login', loginUserController);
 
 export default router;
