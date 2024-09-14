@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Si todo es válido, permitir que el formulario se envíe
         if (isFormValid) {
             const formData = new FormData(form);
-            fetch('/api/customer', {
+            fetch('/api/customers', {
                 method: 'POST',
                 body: formData
             })
