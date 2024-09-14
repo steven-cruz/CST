@@ -13,8 +13,15 @@ export function verifyToken(req, res, next) {
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
         req.user = decoded;
+
+        if (req.accepts('html')) {
+            res.setHeader('Cache-Control', 'no-store');
+            res.setHeader('Pragma', 'no-cache');
+            res.setHeader('Expires', '0');
+        }
+
         next();
     } catch (error) {
-        return res.status(401).json({ error: 'Token inválido o expirado' });
+        return res.redirect('/');
     }
 }
