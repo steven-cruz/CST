@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const toastData = JSON.parse(localStorage.getItem('toastMsg'));
+    if (toastData) {
+        showToast(toastData.message, toastData.type);
+        localStorage.removeItem('toastMsg');
+    }
+});
+
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -14,7 +22,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         if (data.error) {
             showToast(data.error, 'error');
         } else {
-            localStorage.setItem('AccessToken', data.token)
             localStorage.setItem('toastMsg', JSON.stringify({ message: '¡Inicio de sesión exitoso!', type: 'success' }));
             window.location.href = '/dashboard';
         }

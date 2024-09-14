@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Si hay un mensaje para mostrar (toast), mostrarlo
     const toastData = JSON.parse(localStorage.getItem('toastMsg'));
     if (toastData) {
         showToast(toastData.message, toastData.type);
-        localStorage.removeItem('toastMsg'); // Limpiar el mensaje una vez mostrado
+        localStorage.removeItem('toastMsg');
     }
 });
 

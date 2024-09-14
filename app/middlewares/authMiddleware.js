@@ -12,8 +12,8 @@ export function verifyToken(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded; // Guardar la información del usuario en el request
-        next(); // Continuar al siguiente middleware o controlador
+        req.user = decoded;
+        next();
     } catch (error) {
         return res.status(401).json({ error: 'Token inválido o expirado' });
     }
