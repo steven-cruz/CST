@@ -5,6 +5,12 @@ const router = Router();
 
 // Initial Page ('Sig in')
 router.get('/', (req, res) => {
+    const token = req.cookies?.token;
+
+    if (token) {
+        return res.redirect('/dashboard');
+    }
+
     res.render('common/pages/login', {title: 'Iniciar sesión'})
 });
 
