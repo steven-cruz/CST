@@ -28,8 +28,36 @@ async function loadCustomers() {
                 <td>${customer.phone_number}</td>
                 <td>${customer.address_street}</td>
                 <td>${customer.email}</td>
+                <td><button class="btn-delete" data-id="${customer.id}">Eliminar</button></td>
             `;
             tableBody.appendChild(row);
+        });
+
+        // Asignar eventos a los botones de eliminar
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', async function () {
+                const customerId = this.getAttribute('data-id');
+                const confirmed = confirm('¿Estás seguro de que deseas eliminar este cliente?');
+                if (!confirmed) return;
+
+                try {
+                    const deleteResponse = await fetch(`/api/customers/${customerId}`, {
+                        method: 'DELETE',
+                        credentials: 'include',
+                    });
+
+                    const result = await deleteResponse.json();
+
+                    if (result.error) {
+                        alert(result.error);
+                    } else {
+                        loadCustomers();
+                        showToast(result.message, 'success');
+                    }
+                } catch (error) {
+                    console.error('Error al eliminar el cliente:', error);
+                }
+            });
         });
     } catch (error) {
         console.error('Error al cargar los clientes:', error);
