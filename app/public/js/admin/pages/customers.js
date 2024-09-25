@@ -37,26 +37,28 @@ async function loadCustomers() {
         document.querySelectorAll('.btn-delete').forEach(button => {
             button.addEventListener('click', async function () {
                 const customerId = this.getAttribute('data-id');
-                const confirmed = confirm('¿Estás seguro de que deseas eliminar este cliente?');
-                if (!confirmed) return;
 
-                try {
-                    const deleteResponse = await fetch(`/api/customers/${customerId}`, {
-                        method: 'DELETE',
-                        credentials: 'include',
-                    });
+                // Usar el modal en lugar de confirm()
+                showModal('¿Estás seguro de que deseas eliminar este cliente?', async function () {
+                    try {
+                        const deleteResponse = await fetch(`/api/customers/${customerId}`, {
+                            method: 'DELETE',
+                            credentials: 'include',
+                        });
 
-                    const result = await deleteResponse.json();
+                        const result = await deleteResponse.json();
 
-                    if (result.error) {
-                        alert(result.error);
-                    } else {
-                        loadCustomers();
-                        showToast(result.message, 'success');
+                        if (result.error) {
+                            showToast(result.error, 'error');
+                        } else {
+                            showToast(result.message, 'success');
+                            loadCustomers(); // Recargar la tabla después de eliminar
+                        }
+                    } catch (error) {
+                        console.error('Error al eliminar el cliente:', error);
+                        showToast('Error al eliminar el cliente', 'error');
                     }
-                } catch (error) {
-                    console.error('Error al eliminar el cliente:', error);
-                }
+                });
             });
         });
     } catch (error) {
