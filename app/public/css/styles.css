@@ -24,6 +24,10 @@ input {
     padding: 0 1rem;
 }
 
+[aria-hidden="true"] {
+    display: none;
+}
+
 /*Primary buttons desings*/
 
 .btn-action-primary {

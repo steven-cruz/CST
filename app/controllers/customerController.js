@@ -1,20 +1,39 @@
-import { getAllCustomers, createCustomer, deleteCustomerById, findCustomerById } from '../models/customerModel.js';
+import { getPaginatedCustomers, searchCustomers, countAllCustomers, countFilteredCustomers, createCustomer, deleteCustomerById, findCustomerById } from '../models/customerModel.js';
 
 /**
- * Controller for Get all customers.
+ * Obtener los clientes con paginación y filtrado.
  */
-export async function getAllCustomersController(req, res) {
+export async function getCustomers(req, res) {
     try {
-        const customers = await getAllCustomers();
-        res.json(customers);
+        const { page = 1, limit = 10, search = '' } = req.query;
+
+        const offset = (page - 1) * limit;
+        let customers, totalCustomers;
+
+        if (search) {
+            customers = await searchCustomers(search, limit, offset);
+            totalCustomers = await countFilteredCustomers(search);
+        } else {
+            customers = await getPaginatedCustomers(limit, offset);
+            totalCustomers = await countAllCustomers();
+        }
+
+        const totalPages = Math.ceil(totalCustomers / limit);
+
+        // Devolver los datos al cliente (front-end)
+        res.json({
+            customers,
+            totalCustomers,
+            totalPages
+        });
     } catch (error) {
-        console.error('Error al obtener usuarios: ', error);
-        res.status(500).json({error: 'Error interno del servidor.'});
+        console.error('Error al obtener los clientes:', error);
+        res.status(500).json({ error: 'Error al obtener los clientes' });
     }
 }
 
 /**
- * Controller for Create news customers.
+ * Controlador para crear un nuevo cliente.
  */
 export async function createCustomerController(req, res) {
     try {
@@ -42,14 +61,14 @@ export async function deleteCustomerController(req, res) {
         // Verificar si el cliente existe antes de eliminarlo
         const customer = await findCustomerById(id);
         if (!customer) {
-            return res.status(404).json({ error: 'No se encontro el cliente para ser eliminado' });
+            return res.status(404).json({ error: 'No se encontró el cliente para ser eliminado' });
         }
 
         // Eliminar el cliente
         await deleteCustomerById(id);
         res.status(200).json({ message: 'Cliente eliminado exitosamente' });
     } catch (error) {
-        console.error('Error al eliminar el cliente: ', error);
+        console.error('Error al eliminar el cliente:', error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 }
