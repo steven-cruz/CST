@@ -1,4 +1,4 @@
-import { getPaginatedCustomers, searchCustomers, countAllCustomers, countFilteredCustomers, createCustomer, deleteCustomerById, findCustomerById } from '../models/customerModel.js';
+import { getAllCustomers, updateCustomer, getPaginatedCustomers, searchCustomers, countAllCustomers, countFilteredCustomers, createCustomer, deleteCustomerById, findCustomerById } from '../models/customerModel.js';
 
 /**
  * Obtener los clientes con paginación y filtrado.
@@ -29,6 +29,63 @@ export async function getCustomers(req, res) {
     } catch (error) {
         console.error('Error al obtener los clientes:', error);
         res.status(500).json({ error: 'Error al obtener los clientes' });
+    }
+}
+
+/**
+ * Controller for Get all customers.
+ */
+export async function getAllCustomersController(req, res) {
+    try {
+        const customers = await getAllCustomers();
+        res.json(customers);
+    } catch (error) {
+        console.error('Error al obtener usuarios: ', error);
+        res.status(500).json({error: 'Error interno del servidor.'});
+    }
+}
+
+/**
+ * Controller for Get customer by ID.
+ */
+export async function getCustomerByIdController(req, res) {
+    try {
+        const { id } = req.params;
+        const customer = await findCustomerById(id);
+
+        if (!customer) {
+            return res.status(404).json({ error: 'Cliente no encontrado' });
+        }
+
+        res.render('admin/pages/edit-customer', {
+            title: 'Editar cliente',
+            customer: customer
+        });
+    } catch (error) {
+        console.error('Error al obtener el cliente: ', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+}
+
+/**
+ * Controlador para actualizar un cliente.
+ */
+export async function updateCustomerController(req, res) {
+    try {
+        const { id } = req.params;
+        const customerData = req.body;
+
+        const customer = await findCustomerById(id);
+        if (!customer) {
+            return res.status(404).json({ error: 'Cliente no encontrado' });
+        }
+
+        // Actualizar cliente
+        await updateCustomer(id, customerData);
+        res.status(200).json({ message: 'Cliente actualizado exitosamente' });
+    } catch (error) {
+        console.error('Error al actualizar el cliente: ', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 }
 

@@ -160,7 +160,8 @@ tbody tr:nth-child(even) {
  * ==============================
  */
 
-.page-create-customer form .control {
+.page-create-customer form .control,
+.page-edit-customer form .control {
     display: flex;
     flex-direction: column;
     margin-bottom: 6px;

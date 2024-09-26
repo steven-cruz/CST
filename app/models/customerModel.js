@@ -83,3 +83,15 @@ export async function deleteCustomerById(id) {
     const query = 'DELETE FROM customers WHERE id = ?';
     await dbConnection.query(query, [id]);
 }
+
+/**
+ * Update an existing customer by ID.
+ */
+export async function updateCustomer(id, { document_type, document_number, first_name, last_name, phone_number, address_street, email }) {
+    const query = `
+        UPDATE customers
+        SET document_type = ?, document_number = ?, first_name = ?, last_name = ?, phone_number = ?, address_street = ?, email = ?, update_up = NOW()
+        WHERE id = ?
+    `;
+    await dbConnection.query(query, [document_type, document_number, first_name, last_name, phone_number, address_street, email, id]);
+}

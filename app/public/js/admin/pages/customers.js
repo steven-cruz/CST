@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const toastData = JSON.parse(localStorage.getItem('toastMsg'));
+    if (toastData) {
+        showToast(toastData.message, toastData.type);
+        localStorage.removeItem('toastMsg');
+    }
+
     let currentPage = 1;
     const limit = 10; // Límite de registros por página
 
@@ -51,7 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         <td>${customer.phone_number}</td>
                         <td>${customer.address_street}</td>
                         <td>${customer.email}</td>
-                        <td><button class="btn-delete" data-id="${customer.id}">Eliminar</button></td>
+                        <td>
+                            <button class="btn-edit" data-id="${customer.id}">Editar</button>
+                            <button class="btn-delete" data-id="${customer.id}">Eliminar</button>
+                        </td>
                     `;
                     tableBody.appendChild(row);
                 });
@@ -82,6 +91,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                 showToast('Error al eliminar el cliente', 'error');
                             }
                         });
+                    });
+                });
+
+                // Asignar eventos al botón de editar
+                document.querySelectorAll('.btn-edit').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const customerId = this.getAttribute('data-id');
+                        window.location.href = `/api/customers/edit/${customerId}`;
                     });
                 });
 
@@ -122,23 +139,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
             paginationContainer.appendChild(pageButton);
         }
-    }
-
-    // Función para mostrar notificaciones (toasts)
-    function showToast(message, type) {
-        const toast = document.createElement('div');
-        toast.textContent = message;
-        toast.style.position = 'fixed';
-        toast.style.bottom = '20px';
-        toast.style.right = '20px';
-        toast.style.backgroundColor = type === 'success' ? 'green' : 'red';
-        toast.style.color = 'white';
-        toast.style.padding = '10px';
-        toast.style.borderRadius = '5px';
-        toast.style.zIndex = '1000';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            document.body.removeChild(toast);
-        }, 3000);
     }
 });
