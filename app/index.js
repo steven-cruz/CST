@@ -13,6 +13,8 @@ import indexRoutes from './routes/index.js';
 import customerRoutes from './routes/customerRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
+import lessMiddleware from 'less-middleware';
+
 const app = express();
 
 // Configurar middleware de cookies
@@ -20,11 +22,20 @@ app.use(cookieParser());
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.set('views', join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// Configurar middleware LESS para compilar archivos .less a .css
+app.use(
+    lessMiddleware(join(__dirname, 'public/less'), {
+        dest: join(__dirname, 'public'), // Directorio de destino para CSS
+        force: true, // Siempre recompilar los archivos LESS
+        debug: true, // Mostrar mensajes de depuración
+    })
+);
 
 // Incluir archivos estáticos desde la carpeta 'public'
 app.use(express.static(join(__dirname, 'public')));
+
+app.set('views', join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Analizar solicitudes JSON
 app.use(bodyParser.json());

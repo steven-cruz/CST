@@ -11,42 +11,42 @@ router.get('/', (req, res) => {
         return res.redirect('/dashboard');
     }
 
-    res.render('common/pages/login', {title: 'Iniciar sesión'})
+    res.render('common/pages/login', {title: 'Iniciar sesión', description: 'Página para el inicio de sesión de la aplicación CST-Americano'})
 });
 
 // Dashboard Admin Page
 router.get('/dashboard', verifyToken, (req, res) => {
-    res.render('admin/pages/dashboard', {title: 'Panel de administración'})
+    res.render('admin/pages/dashboard', {title: 'Panel de administración', description: 'Página de navegación para administradores'})
 });
 
 // Customers Page
 router.get('/customers' ,verifyToken, (req, res) => {
-    res.render('admin/pages/customers', {title: 'Clientes'})
+    res.render('admin/pages/customers', {title: 'Clientes', description: 'Muestra todos los clientes registrados en la aplicación CST | Americano'})
 });
 
 // Create a New Customer
 router.get('/create-customer' ,verifyToken, (req, res) => {
-    res.render('admin/pages/create-customer', {title: 'Crear un nuevo cliente'})
+    res.render('admin/pages/create-customer', {title: 'Crear un nuevo cliente', description: 'Página para crear nuevos usuarios'})
 })
 
 // Orders Page
 router.get('/orders' ,verifyToken, (req, res) => {
-    res.render('admin/pages/orders', {title: 'Ordenes'})
+    res.render('admin/pages/orders', {title: 'Ordenes', description: 'Visualización de todas las órdenes creadas'})
 });
 
 // History Orders
 router.get('/history-orders' ,verifyToken, (req, res) => {
-    res.render('admin/pages/history-orders', {title: 'Historial de ordenes'})
+    res.render('admin/pages/history-orders', {title: 'Historial de ordenes', description: 'Visualización del historial de ordenes'})
 });
 
 // Inventory
 router.get('/inventory' ,verifyToken, (req, res) => {
-    res.render('admin/pages/inventory', {title: 'Inventario'})
+    res.render('admin/pages/inventory', {title: 'Inventario', description: 'Visualización del inventario'})
 });
 
 // Settings
 router.get('/settings' ,verifyToken, (req, res) => {
-    res.render('admin/pages/settings', {title: 'Configuraciones'})
+    res.render('admin/pages/settings', {title: 'Configuraciones', description: 'Visualización de las configuraciones para administradores'})
 });
 
 export default router;
