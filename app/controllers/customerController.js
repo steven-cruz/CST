@@ -59,6 +59,7 @@ export async function getCustomerByIdController(req, res) {
 
         res.render('admin/pages/edit-customer', {
             title: 'Editar cliente',
+            description: 'Permite editar los datos de un cliente registrado',
             customer: customer
         });
     } catch (error) {
@@ -85,7 +86,7 @@ export async function updateCustomerController(req, res) {
         res.status(200).json({ message: 'Cliente actualizado exitosamente' });
     } catch (error) {
         console.error('Error al actualizar el cliente: ', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({ error: error.sqlMessage });
     }
 }
 
