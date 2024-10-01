@@ -99,4 +99,5 @@ CST/
     * **Apply configuration**
       * Para iniciar el proceso de configuración presiona el boton `Excecute`
 
-<a name="autores"><h2>Autores</h2></a>
+<a name="autores"><h2>Compilación de estilos</h2></a>
+Los estilos se compilan de forma automatica cuando son solicitados por el navegador, sin embargo en ambientes productivos se debe eliminar o comentar estas lineas `force: true, // Siempre recompilar los archivos LESS` y `debug: true, // Mostrar mensajes de depuración` para que no tengamos problemas de rendimiento, para compilar los estilos en ambientes productivos debemos correr el comando `npm run build-css`

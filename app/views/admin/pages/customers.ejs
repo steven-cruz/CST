@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <%- include('../../common/components/head') %>
 
 <body class="page-customers">
@@ -10,36 +10,37 @@
 
         <div class="container-content">
             <h1><%= title %></h1>
-            <div class="container-createcustomer-button">
-                <button class="btn-action-primary btn-create-customer"><a href="/create-customer">Crear cliente</a></button>
-            </div>
-            <div class="container-customers-buttons">
-                <button class="btn-action-secondary">Eliminar clientes seleccinados</button>
-                <div>
-                    <input class="input-search" type="text" placeholder="Filtrar por documento, nombre o apellido...">
-                    <button class="btn-action-secondary">Buscar</button>
+            <div id="has-clients" aria-hidden="true">
+                <div class="options-top">
+                    <div class="createcustomer-button">
+                        <button class="btn-action-primary btn-create-customer">
+                            <a href="/create-customer">Crear cliente</a>
+                        </button>
+                    </div>
+                    <div class="filter-container">
+                        <input id="filter-input" class="input-search" type="text" placeholder="Filtrar por documento, nombre o apellido...">
+                    </div>
+                </div>
+                <div class="container-customers-cards">
+                    <div id="customer-cards" class="customer-cards"></div>
+                    <div id="pagination-container" class="pagination-container"></div>
                 </div>
             </div>
-            <div class="container-customers-table">
-                <table id="customers-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>T.D</th>
-                            <th>Num. Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Teléfono</th>
-                            <th>Dirección</th>
-                            <th>Correo</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+
+            <div id="no-customers-message" aria-hidden="true">
+                <h2>No hay clientes registrados</h2>
+                <button class="btn-action-primary btn-create-customer">
+                    <a href="/create-customer">Crear cliente</a>
+                </button>
+            </div>
+
+            <div id="no-result-found" aria-hidden="true">
+                <h2>No hay registros para el filtro aplicado</h2>
             </div>
         </div>
     </div>
 
+    <%- include('../../common/components/modal') %>
     <script src="/js/admin/pages/customers.js"></script>
 </body>
 </html>
