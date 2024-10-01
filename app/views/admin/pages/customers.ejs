@@ -11,34 +11,19 @@
         <div class="container-content">
             <h1><%= title %></h1>
             <div id="has-clients" aria-hidden="true">
-                <div class="container-createcustomer-button">
-                    <button class="btn-action-primary btn-create-customer">
-                        <a href="/create-customer">Crear cliente</a>
-                    </button>
-                </div>
-                <div class="container-customers-buttons">
-                    <div>
+                <div class="options-top">
+                    <div class="createcustomer-button">
+                        <button class="btn-action-primary btn-create-customer">
+                            <a href="/create-customer">Crear cliente</a>
+                        </button>
+                    </div>
+                    <div class="filter-container">
                         <input id="filter-input" class="input-search" type="text" placeholder="Filtrar por documento, nombre o apellido...">
                     </div>
                 </div>
-                <div class="container-customers-table">
-                    <table id="customers-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>T.D</th>
-                                <th>Num. Documento</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Teléfono</th>
-                                <th>Dirección</th>
-                                <th>Correo</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                    <div id="pagination-container"></div>
+                <div class="container-customers-cards">
+                    <div id="customer-cards" class="customer-cards"></div>
+                    <div id="pagination-container" class="pagination-container"></div>
                 </div>
             </div>
 

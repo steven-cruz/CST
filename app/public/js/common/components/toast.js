@@ -6,5 +6,5 @@ function showToast(message, type) {
     document.body.appendChild(toast);
     setTimeout(() => {
         document.body.removeChild(toast);
-    }, 5000);
+    }, 4000);
 }

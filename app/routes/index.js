@@ -26,7 +26,7 @@ router.get('/customers' ,verifyToken, (req, res) => {
 
 // Create a New Customer
 router.get('/create-customer' ,verifyToken, (req, res) => {
-    res.render('admin/pages/create-customer', {title: 'Crear un nuevo cliente', description: 'Página para crear nuevos usuarios'})
+    res.render('admin/pages/create-customer', {title: 'Crear cliente', description: 'Página para crear nuevos usuarios'})
 })
 
 // Orders Page

@@ -1,7 +1,12 @@
 <div id="global-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-content">
-        <span class="modal-close" id="modal-close">&times;</span>
-        <p id="modal-message"></p>
+        <div class="modal-header">
+            <span title="Cerrar modal" class="modal-close" id="modal-close"></span>
+        </div>
+        <div class="modal-information">
+            <span class="warning-icon"></span>
+            <p id="modal-message" class="modal-message"></p>
+        </div>
         <div class="modal-actions">
             <button id="modal-confirm" class="modal-btn-confirm">Confirmar</button>
             <button id="modal-cancel" class="modal-btn-cancel">Cancelar</button>

@@ -3,9 +3,22 @@
 <%- include('../../common/components/head') %>
 
 <body class="dashboard-page">
-    <h1><%= title %></h1>
+    <h1 class="title"><%= title %></h1>
 
-    <%- include('../components/navigation') %>
+    <div class="header">
+        <div class="container-img">
+            <div class="border">
+                <img src="/images/logo.webp" alt="">
+            </div>
+        </div>
+
+        <h2 class="subtitle">CST | AMERICANO</h2>
+    </div>
+
+
+    <div class="box-content">
+        <%- include('../components/navigation') %>
+    </div>
 
     <script src="/js/admin/pages/dashboard.js"></script>
 </body>

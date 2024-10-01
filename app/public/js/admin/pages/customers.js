@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let currentPage = 1;
-    const limit = 10; // Límite de registros por página
+    const limit = 9; // Límite de registros por página
 
     // Mostrar los clientes al cargar la página
     loadCustomers();
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const customers = result.customers || [];
             const totalPages = result.totalPages || 1;
 
-            const tableBody = document.querySelector('#customers-table tbody');
-            const tableContainer = document.querySelector('.container-customers-table');
+            const customerCards = document.querySelector('#customer-cards');
+            const tableContainer = document.querySelector('.container-customers-cards');
             const hasClients = document.getElementById('has-clients');
             const noCustomersMessage = document.getElementById('no-customers-message');
             const noResultFound = document.getElementById('no-result-found');
 
-            tableBody.innerHTML = ''; // Limpiar la tabla
+            customerCards.innerHTML = ''; // Limpiar la tabla
 
             // Ocultar todos los mensajes antes de procesar
             noCustomersMessage.style.display = 'none';
@@ -42,27 +42,32 @@ document.addEventListener('DOMContentLoaded', function () {
             tableContainer.style.display = 'none';
 
             if (customers.length > 0) {
-                hasClients.style.display = 'block';
+                hasClients.setAttribute('aria-hidden', 'false');
                 tableContainer.style.display = 'block';
 
                 // Renderizar filas de clientes
                 customers.forEach(customer => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${customer.id}</td>
-                        <td>${customer.document_type}</td>
-                        <td>${customer.document_number}</td>
-                        <td>${customer.first_name}</td>
-                        <td>${customer.last_name}</td>
-                        <td>${customer.phone_number}</td>
-                        <td>${customer.address_street}</td>
-                        <td>${customer.email}</td>
-                        <td>
-                            <button class="btn-edit" data-id="${customer.id}">Editar</button>
-                            <button class="btn-delete" data-id="${customer.id}">Eliminar</button>
-                        </td>
+                    const card = document.createElement('div');
+                    card.innerHTML = `
+                        <div class="actions">
+                            <button class="btn-edit" title="Editar" data-id="${customer.id}">
+                                <img src="../../icons/edit.svg" alt="Edit">
+                            </button>
+                            <button class="btn-delete" title="Eliminar" data-id="${customer.id}">
+                                <img src="../../icons/transh.svg" alt="Edit">
+                            </button>
+                        </div>
+                        <div class="info id-field"><span class="title">ID</span><span class="label">${customer.id}</span></div>
+                        <div class="info"><span class="title" title="Número de documento">Núm. Documento:</span><span class="label">${customer.document_number}</span></div>
+                        <div class="info"><span class="title" title="Tipo de documento">Tipo de doc:</span><span class="label">${customer.document_type}</span></div>
+                        <div class="info"><span class="title">Nombre(s):</span><span class="label">${customer.first_name}</span></div>
+                        <div class="info"><span class="title">Apellido(s):</span><span class="label">${customer.last_name}</span></div>
+                        <div class="info"><span class="title">Número de celular:</span><span class="label">${customer.phone_number}</span></div>
+                        <div class="info"><span class="title">Dirección:</span><span class="label">${customer.address_street}</span></div>
+                        <div class="info email-field"><span class="title">Correo electronico:</span><span class="label">${customer.email}</span></div>
                     `;
-                    tableBody.appendChild(row);
+                    customerCards.appendChild(card);
+                    card.classList.add('card-information');
                 });
 
                 // Asignar eventos a los botones de eliminar
@@ -84,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     showToast(result.error, 'error');
                                 } else {
                                     showToast(result.message, 'success');
-                                    loadCustomers(); // Recargar la tabla después de eliminar
+                                    location.reload();
                                 }
                             } catch (error) {
                                 console.error('Error al eliminar el cliente:', error);
@@ -130,10 +135,12 @@ document.addEventListener('DOMContentLoaded', function () {
             pageButton.classList.add('pagination-button');
             if (page === currentPage) {
                 pageButton.disabled = true;
+                pageButton.title = 'Página actual';
             }
 
             pageButton.addEventListener('click', function () {
                 currentPage = page;
+                window.scrollTo({top: 0, behavior: 'smooth'});
                 loadCustomers(); // Cargar la página seleccionada
             });
 

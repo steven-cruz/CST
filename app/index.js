@@ -26,8 +26,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(
     lessMiddleware(join(__dirname, 'public/less'), {
         dest: join(__dirname, 'public'), // Directorio de destino para CSS
-        force: true, // Siempre recompilar los archivos LESS
-        debug: true, // Mostrar mensajes de depuración
+        // force: true, // Siempre recompilar los archivos LESS
+        // debug: true, // Mostrar mensajes de depuración
     })
 );
 

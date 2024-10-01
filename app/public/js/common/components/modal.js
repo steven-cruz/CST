@@ -10,10 +10,12 @@ function showModal(message, onConfirm) {
 
     // Mostrar el modal
     modal.style.display = 'flex';
+    document.querySelector('body').classList.add('modal-open');
 
     // Confirmación de acción
     modalConfirm.onclick = function () {
         modal.style.display = 'none';
+        document.querySelector('body').classList.remove('modal-open');
         if (onConfirm) {
             onConfirm();  // Ejecuta la función de confirmación
         }
@@ -22,6 +24,7 @@ function showModal(message, onConfirm) {
     // Cancelación o cierre del modal
     modalCancel.onclick = modalClose.onclick = function () {
         modal.style.display = 'none';
+        document.querySelector('body').classList.remove('modal-open');
     };
 }
 
@@ -30,5 +33,6 @@ window.onclick = function (event) {
     const modal = document.getElementById('global-modal');
     if (event.target === modal) {
         modal.style.display = 'none';
+        document.querySelector('body').classList.remove('modal-open');
     }
 };
