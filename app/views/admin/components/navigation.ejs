@@ -1,10 +1,27 @@
+<header class="header-brand">
+    <div class="brand">
+        <h2>CST | AMERICANO</h2>
+    </div>
+    <div class="toggle" id="toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+
 <nav class="navigation">
     <ul class="items">
-        <li class="item"><a class="option" href="/dashboard">Panel de administración</a></li>
-        <li class="item"><a class="option" href="/customers">Clientes</a></li>
-        <li class="item"><a class="option" href="/orders">Ordenes</a></li>
-        <li class="item"><a class="option" href="/history-orders">Historial de ordenes</a></li>
-        <li class="item"><a class="option" href="/inventory">Inventario</a></li>
-        <li class="item"><a class="option" href="/settings">Configuraciones</a></li>
+        <li class="item link-dashboard"><a class="option" href="/dashboard">Panel de administración</a></li>
+        <li class="item link-customers"><a class="option" href="/customers">Clientes</a></li>
+        <li class="item link-orders"><a class="option" href="/orders">Ordenes</a></li>
+        <li class="item link-history-orders"><a class="option" href="/history-orders">Historial de ordenes</a></li>
+        <li class="item link-inventory"><a class="option" href="/inventory">Inventario</a></li>
+        <li class="item link-settings"><a class="option" href="/settings">Configuraciones</a></li>
     </ul>
 </nav>
+
+<div class="container-logout">
+    <%- include('../../common/logout') %>
+</div>
+
+<script src="/js/common/components/navigation.js"></script>
