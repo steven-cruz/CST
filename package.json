@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon app/index.js",
-    "build-css": "lessc app/public/less/css/styles.less app/public/css/styles.css"
+    "build-css": "lessc app/public/less/css/styles.less app/public/css/styles.css",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,9 @@
     "mysql2": "^3.9.7"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.8",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.0"
   }
 }
